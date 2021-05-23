@@ -6,7 +6,6 @@ using FluentValidation.Results;
 
 namespace Checkout.PaymentGateway.Models.Core.Entities
 {
-    [SuppressMessage("ReSharper", "AutoPropertyCanBeMadeGetOnly.Local")]
     public class BankCard : Entity
     {
         private BankCard()

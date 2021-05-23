@@ -7,7 +7,6 @@ using FluentValidation.Results;
 
 namespace Checkout.PaymentGateway.Models.Core.Entities
 {
-    [SuppressMessage("ReSharper", "AutoPropertyCanBeMadeGetOnly.Local")]
     public class Payment : Entity
     {
         private Payment()
