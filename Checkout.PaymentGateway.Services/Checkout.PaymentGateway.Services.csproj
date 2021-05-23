@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Checkout.PaymentGateway.ExternalClients\Checkout.PaymentGateway.ExternalClients.csproj" />
+    <ProjectReference Include="..\Checkout.PaymentGateway.Models\Checkout.PaymentGateway.Models.csproj" />
+    <ProjectReference Include="..\Checkout.PaymentGateway.Repositories\Checkout.PaymentGateway.Repositories.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <LangVersion>9.0</LangVersion>
+
+  </PropertyGroup>
+
+</Project>
