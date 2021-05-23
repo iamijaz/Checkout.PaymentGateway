@@ -15,9 +15,6 @@ namespace Checkout.PaymentGateway.Services.Tests
 {
     public class PaymentServiceTests
     {
-        private readonly Mock<IBankingProxy> _bankingProxyMock;
-        private readonly Mock<IPaymentRepository> _paymentRepositoryMock;
-
         private readonly PaymentRequest _paymentRequest = new()
         {
             Amount = 10,
@@ -33,6 +30,8 @@ namespace Checkout.PaymentGateway.Services.Tests
 
         // System Under Test
         private readonly PaymentService _sut;
+        private readonly Mock<IBankingProxy> _bankingProxyMock;
+        private readonly Mock<IPaymentRepository> _paymentRepositoryMock;
 
         public PaymentServiceTests()
         {

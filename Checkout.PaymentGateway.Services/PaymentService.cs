@@ -43,7 +43,7 @@ namespace Checkout.PaymentGateway.Services
             var payment = await _paymentRepository.GetByIdIncludingBankCard(id);
             return payment switch
             {
-                null => new PaymentResponseFailed(new[] {new PaymentErrors($"Payment not found for id {id}")}.ToList()),
+                null => new PaymentResponseFailed(new[] { new PaymentErrors($"Payment not found for id {id}") }.ToList()),
                 _ => new PaymentResponseSuccess(id, _mapper.Map<PaymentRequest>(payment), payment.ProcessingStatus)
             };
         }

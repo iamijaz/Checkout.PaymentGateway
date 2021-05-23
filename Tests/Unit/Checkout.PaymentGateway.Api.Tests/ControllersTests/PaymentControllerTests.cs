@@ -14,8 +14,6 @@ namespace Checkout.PaymentGateway.Api.Tests.ControllersTests
 {
     public class PaymentControllerTests
     {
-        private readonly PaymentController _paymentController;
-
         private readonly PaymentRequest _paymentRequest = new()
         {
             Amount = 10,
@@ -29,6 +27,8 @@ namespace Checkout.PaymentGateway.Api.Tests.ControllersTests
             )
         };
 
+        // System Under Test
+        private readonly PaymentController _sut;
         private readonly Mock<IPaymentResponseLinkBuilder> _paymentResponseLinkBuilder;
         private readonly Mock<IPaymentService> _paymentService;
 
@@ -37,7 +37,7 @@ namespace Checkout.PaymentGateway.Api.Tests.ControllersTests
             _paymentService = new Mock<IPaymentService>();
             _paymentResponseLinkBuilder = new Mock<IPaymentResponseLinkBuilder>();
 
-            _paymentController = new PaymentController(_paymentService.Object, _paymentResponseLinkBuilder.Object);
+            _sut = new PaymentController(_paymentService.Object, _paymentResponseLinkBuilder.Object);
         }
 
         [Fact]
@@ -47,11 +47,11 @@ namespace Checkout.PaymentGateway.Api.Tests.ControllersTests
             PaymentRequest paymentRequest = null;
 
             // Act
-            var actionResult = await _paymentController.Post(paymentRequest);
+            var actionResult = await _sut.Post(paymentRequest);
 
             // Assert
             Assert.True(actionResult.Result is BadRequestObjectResult);
-            Assert.Equal((actionResult.Result as BadRequestObjectResult)?.StatusCode, (int) HttpStatusCode.BadRequest);
+            Assert.Equal((actionResult.Result as BadRequestObjectResult)?.StatusCode, (int)HttpStatusCode.BadRequest);
         }
 
 
@@ -70,11 +70,11 @@ namespace Checkout.PaymentGateway.Api.Tests.ControllersTests
                 .Returns(paymentResponseSuccess);
 
             // Act
-            var actionResult = await _paymentController.Post(_paymentRequest);
+            var actionResult = await _sut.Post(_paymentRequest);
 
             // Assert
             Assert.True(actionResult.Result is OkObjectResult);
-            Assert.Equal((actionResult.Result as OkObjectResult)?.StatusCode, (int) HttpStatusCode.OK);
+            Assert.Equal((actionResult.Result as OkObjectResult)?.StatusCode, (int)HttpStatusCode.OK);
         }
 
         [Fact]
@@ -89,11 +89,11 @@ namespace Checkout.PaymentGateway.Api.Tests.ControllersTests
                 .ReturnsAsync(paymentResponseFailed);
 
             // Act
-            var actionResult = await _paymentController.Post(_paymentRequest);
+            var actionResult = await _sut.Post(_paymentRequest);
 
             // Assert
             Assert.True(actionResult.Result is BadRequestObjectResult);
-            Assert.Equal((actionResult.Result as BadRequestObjectResult)?.StatusCode, (int) HttpStatusCode.BadRequest);
+            Assert.Equal((actionResult.Result as BadRequestObjectResult)?.StatusCode, (int)HttpStatusCode.BadRequest);
         }
 
         [Fact]
@@ -101,7 +101,6 @@ namespace Checkout.PaymentGateway.Api.Tests.ControllersTests
         {
             // Arrange
             var id = default(Guid);
-
             var paymentResponseFailed = new PaymentResponseFailed();
 
             _paymentService
@@ -109,11 +108,11 @@ namespace Checkout.PaymentGateway.Api.Tests.ControllersTests
                 .ReturnsAsync(paymentResponseFailed);
 
             // Act
-            var actionResult = await _paymentController.Get(id.ToString());
+            var actionResult = await _sut.Get(id.ToString());
 
             // Assert
             Assert.True(actionResult.Result is NotFoundObjectResult);
-            Assert.Equal((actionResult.Result as NotFoundObjectResult)?.StatusCode, (int) HttpStatusCode.NotFound);
+            Assert.Equal((actionResult.Result as NotFoundObjectResult)?.StatusCode, (int)HttpStatusCode.NotFound);
         }
 
         [Fact]
@@ -121,8 +120,6 @@ namespace Checkout.PaymentGateway.Api.Tests.ControllersTests
         {
             // Arrange
             var id = Guid.NewGuid();
-
-
             var paymentResponseSuccess =
                 new PaymentResponseSuccess(id, _paymentRequest, PaymentProcessingStatus.Success);
 
@@ -131,16 +128,15 @@ namespace Checkout.PaymentGateway.Api.Tests.ControllersTests
                 .ReturnsAsync(paymentResponseSuccess);
 
             // Act
-            var actionResult = await _paymentController.Get(id.ToString());
+            var actionResult = await _sut.Get(id.ToString());
 
             // Assert
             Assert.True(actionResult.Result is OkObjectResult);
 
             var okResult = actionResult.Result as OkObjectResult;
-
             var resultValue = okResult?.Value as PaymentResponseSuccess;
 
-            Assert.Equal(okResult?.StatusCode, (int) HttpStatusCode.OK);
+            Assert.Equal(okResult?.StatusCode, (int)HttpStatusCode.OK);
             Assert.Equal(_paymentRequest.Amount, resultValue?.Payment.Amount);
             Assert.Equal(_paymentRequest.Currency, resultValue?.Payment.Currency);
             Assert.Equal(_paymentRequest.PaymentCard.CardNumber, resultValue?.Payment.PaymentCard.CardNumber);

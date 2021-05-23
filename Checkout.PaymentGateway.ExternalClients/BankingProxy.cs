@@ -10,7 +10,7 @@ namespace Checkout.PaymentGateway.ExternalClients
     {
         public Task<BankResponse> ProcessPaymentRequest(Payment payment)
         {
-            var bankResponse = new BankResponse {BankProcessId = Guid.NewGuid()};
+            var bankResponse = new BankResponse { BankProcessId = Guid.NewGuid() };
 
             payment.SetBankResponseId(bankResponse.BankProcessId);
             return GetRandomPaymentProcessingStatus() switch

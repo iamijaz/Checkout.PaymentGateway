@@ -42,7 +42,7 @@ namespace Checkout.PaymentGateway.Api.Controllers
         {
             return paymentRequest switch
             {
-                null => BadRequest(new {Message = $"Parameter {nameof(PaymentRequest)} can't be null"}),
+                null => BadRequest(new { Message = $"Parameter {nameof(PaymentRequest)} can't be null" }),
                 _ => await CreatePayment(paymentRequest)
             };
         }
@@ -71,7 +71,7 @@ namespace Checkout.PaymentGateway.Api.Controllers
         {
             return Guid.TryParse(id, out var paymentId) switch
             {
-                false => BadRequest(new {Message = $"Parameter {nameof(id)} can't be blank or null"}),
+                false => BadRequest(new { Message = $"Parameter {nameof(id)} can't be blank or null" }),
                 true => await GetPayment(paymentId)
             };
         }
