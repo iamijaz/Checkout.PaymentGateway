@@ -24,7 +24,9 @@ As per the diagram above, generally flow works as following:
 1. **Prerequisite:** .Net 5.0 and C# 9.0
 2.  Application can be run in two modes
 	1. **In a local server eg Kestrel** via Visual Studio or dotnet CLI
-	2. **In Docker Mode** Via docker-compose
+	2. **In Docker Mode** Via docker-compose up
+		[docker-compose up]
+![docker-compose up](/Diagrams/dockerup.png) 
 3. Once the Application is running, two swagger browsers windows will open
 4. One for the Payment API
 5. Other for the Token API
