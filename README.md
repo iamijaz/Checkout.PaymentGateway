@@ -1,19 +1,19 @@
 
 # Checkout PaymentGateway Architecture
 
-The solution contains a .NET core API which is structured into the following components:
+The solution contains .NET core PaymentGateway API which is structured into the following components:
 
 [Architecture]
 ![Checkout.PaymentGateway Architecture](/Diagrams/Architecture.png) 
 
-* **Payment API** (Checkout.PaymentGateway.Api)- this contains the core payment services for both Making and Retrieving a payment.
-* **Token Service** (Checkout.PaymentGateway.IdentityServer)- this contains one main function, generated token on demand. Just to simulate an Identity Server.
+* **Payment API** (Checkout.PaymentGateway.Api)- Contains the core payment services for both Making and Retrieving a payment.
+* **Token Service** (Checkout.PaymentGateway.IdentityServer)- Contains one main function, generated token on demand. Just to simulate an Identity Server.
 * **Bank Service** (Checkout.PaymentGateway.ExternalClients)- This is a stub proxy service, Just to simulate the banking operations.
 * **Swagger** Both Token service and Payment API has contemporary Swagger, for an easy play around.
 
 ## General Flow
 
-As per the diagram above, generally flow will work like this.
+As per the diagram above, generally flow works as following:
 1. A token is requested from the IdentityServer.
 2. To make a payment request to the Payment Service, a token is passed along as an authorization header.
 3. Payment Service connects to the Banking Service and validates the payment.
@@ -84,7 +84,7 @@ As per the diagram above, generally flow will work like this.
 5. Rich set of Integrations and Unite Tests suits, which tests the whole application inside out
 6. Docker and Containerization configured
 ## Improvements and Assumptions
-1. The main point here is proof of concepts and flow is working. All the production architectural significant components e.g. Acquiring Bank, Identity server, Storage, Containerization etc are assumed at a basic working level.
+1. The main point here is proof of concepts and flow is solid. All the production architectural significant components e.g. Acquiring Bank interface, Identity server, Storage, Containerization etc are assumed and confgiured at a basic working level.
 2. Although the Logging interface is configured but hasn't been used.
 3. More Unit and Integration tests could have been added.
 4. Code reviews and peer reviews can help improve code quality.
