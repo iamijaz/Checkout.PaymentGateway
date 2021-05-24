@@ -24,8 +24,12 @@ As per the diagram above, generally flow works as following:
 1. **Prerequisite:** .Net 5.0 and C# 9.0
 2.  Application can be run in two modes
 	1. **In a local server eg Kestrel** via Visual Studio or dotnet CLI
-	2. **In Docker Mode** Via docker-compose
+	2. **In Docker Mode** Via docker-compose up
+		[docker-compose up]
+![docker-compose up](/Diagrams/dockerup.png) 
 3. Once the Application is running, two swagger browsers windows will open
+[docker running]
+![docker running](/Diagrams/dockerunning.png) 
 4. One for the Payment API
 5. Other for the Token API
 	[Identity Server Swagger]
@@ -77,12 +81,14 @@ As per the diagram above, generally flow works as following:
 
 
 ## Features
-1. Supports the versioning and HATEOAS Driven RESTful API
-2. Contemporary Swagger based interactive documentation
-3. EF Core support
-4.  Authentication and Tokens Authorizations
-5. Rich set of Integrations and Unite Tests suits, which tests the whole application inside out
-6. Docker and Containerization configured
+1. Supports the versioning and HATEOAS Driven RESTful API.
+2. Contemporary Swagger based interactive documentation.
+3. EF Core support.
+4. Authentication and Tokens Authorizations.
+5. Docker and Containerization configured.
+6. Rich set of Integrations and Unite Tests suites, which tests the whole application inside out.
+[Tests suites]
+![Tests suites](/Diagrams/tests.png) 
 ## Improvements and Assumptions
 1. The main point here is proof of concepts and flow is solid. All the production architectural significant components e.g. Acquiring Bank interface, Identity server, Storage, Containerization etc are assumed and confgiured at a basic working level.
 2. Although the Logging interface is configured but hasn't been used.
