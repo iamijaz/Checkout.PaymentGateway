@@ -84,7 +84,7 @@ As per the diagram above, generally flow will work like this.
 5. Rich set of Integrations and Unite Tests suits, which tests the whole application inside out
 6. Docker and Containerization configured
 ## Improvements and Assumptions
-1. The main point here is proof of concepts and flow is solid. All the production architectural significant components e.g. Acquiring Bank, Identity server, Storage, Containerization etc are assumed at a basic working level.
+1. The main point here is proof of concepts and flow is solid. All the production architectural significant components e.g. Acquiring Bank interface, Identity server, Storage, Containerization etc are assumed and confgiured at a basic working level.
 2. Although the Logging interface is configured but hasn't been used.
 3. More Unit and Integration tests could have been added.
 4. Code reviews and peer reviews can help improve code quality.
