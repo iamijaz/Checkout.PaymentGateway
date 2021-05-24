@@ -6,8 +6,8 @@ The solution contains .NET core PaymentGateway API which is structured into the 
 [Architecture]
 ![Checkout.PaymentGateway Architecture](/Diagrams/Architecture.png) 
 
-* **Payment API** (Checkout.PaymentGateway.Api)- this contains the core payment services for both Making and Retrieving a payment.
-* **Token Service** (Checkout.PaymentGateway.IdentityServer)- this contains one main function, generated token on demand. Just to simulate an Identity Server.
+* **Payment API** (Checkout.PaymentGateway.Api)- Contains the core payment services for both Making and Retrieving a payment.
+* **Token Service** (Checkout.PaymentGateway.IdentityServer)- Contains one main function, generated token on demand. Just to simulate an Identity Server.
 * **Bank Service** (Checkout.PaymentGateway.ExternalClients)- This is a stub proxy service, Just to simulate the banking operations.
 * **Swagger** Both Token service and Payment API has contemporary Swagger, for an easy play around.
 
