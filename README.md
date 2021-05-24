@@ -1,9 +1,9 @@
 
-# Checkout.PaymentGateway Architecture
+# Checkout PaymentGateway Architecture
 
 The solution contains a .NET core API which is structured into the following components:
 
-[1-Architecure]
+[Architecture]
 ![Checkout.PaymentGateway Architecture](/Diagrams/Architecture.png) 
 
 * **Payment API** (Checkout.PaymentGateway.Api)- this contains the core payment services for both Making and Retrieving a payment.
@@ -28,10 +28,14 @@ As per the diagram above, generally flow will work like this.
 3. Once the Application is running, two swagger browsers windows will open
 4. One for the Payment API
 5. Other for the Token API
+	[Identity Server Swagger]
+![IdentityServer Swagger](/Diagrams/IdServer.png) 
 6. Create a token and setup at Payment API via Authorization click e.g. Bearer [Token]
 7. Open the Payment Post endpoint and supply the payment details, following sample could be used
 8. Once the Response is received use it with the Get endpoint to retrieve the payment details.
-9.  Sample Request Details
+	[Payment Service Swagger]
+![Payment Service Swagger](/Diagrams/PaymentService.png) 
+9.  Sample Request Details :
 ```
 {
 "amount": 100,
@@ -70,6 +74,8 @@ As per the diagram above, generally flow will work like this.
 "paymentStatus": "Pending"
 }
 ```
+
+
 ## Features
 1. Supports the versioning and HATEOAS Driven RESTful API
 2. Contemporary Swagger based interactive documentation
