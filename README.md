@@ -81,12 +81,14 @@ As per the diagram above, generally flow works as following:
 
 
 ## Features
-1. Supports the versioning and HATEOAS Driven RESTful API
-2. Contemporary Swagger based interactive documentation
-3. EF Core support
-4.  Authentication and Tokens Authorizations
-5. Rich set of Integrations and Unite Tests suits, which tests the whole application inside out
-6. Docker and Containerization configured
+1. Supports the versioning and HATEOAS Driven RESTful API.
+2. Contemporary Swagger based interactive documentation.
+3. EF Core support.
+4. Authentication and Tokens Authorizations.
+5. Docker and Containerization configured.
+6. Rich set of Integrations and Unite Tests suites, which tests the whole application inside out.
+[Tests suites]
+![Tests suites](/Diagrams/tests.png) 
 ## Improvements and Assumptions
 1. The main point here is proof of concepts and flow is solid. All the production architectural significant components e.g. Acquiring Bank interface, Identity server, Storage, Containerization etc are assumed and confgiured at a basic working level.
 2. Although the Logging interface is configured but hasn't been used.
