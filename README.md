@@ -28,6 +28,8 @@ As per the diagram above, generally flow works as following:
 		[docker-compose up]
 ![docker-compose up](/Diagrams/dockerup.png) 
 3. Once the Application is running, two swagger browsers windows will open
+[docker running]
+![docker running](/Diagrams/dockerunning.png) 
 4. One for the Payment API
 5. Other for the Token API
 	[Identity Server Swagger]
