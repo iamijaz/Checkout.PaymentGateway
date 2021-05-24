@@ -13,7 +13,7 @@ The solution contains .NET core PaymentGateway API which is structured into the 
 
 ## General Flow
 
-As per the diagram above, generally flow will work like this.
+As per the diagram above, generally flow works as following:
 1. A token is requested from the IdentityServer.
 2. To make a payment request to the Payment Service, a token is passed along as an authorization header.
 3. Payment Service connects to the Banking Service and validates the payment.
