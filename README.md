@@ -1,7 +1,7 @@
 
 # Checkout PaymentGateway Architecture
 
-The solution contains a .NET core API which is structured into the following components:
+The solution contains .NET core PaymentGateway API which is structured into the following components:
 
 [Architecture]
 ![Checkout.PaymentGateway Architecture](/Diagrams/Architecture.png) 
